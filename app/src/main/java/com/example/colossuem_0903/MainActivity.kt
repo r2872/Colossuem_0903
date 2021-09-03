@@ -1,6 +1,5 @@
 package com.example.colossuem_0903
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class MainActivity : BaseActivity() {
@@ -12,11 +11,14 @@ class MainActivity : BaseActivity() {
         setupEvents()
     }
 
-    override fun setValues() {
-
-    }
-
     override fun setupEvents() {
 
+
     }
+
+    override fun setValues() {
+
+
+    }
+
 }

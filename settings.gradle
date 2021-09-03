@@ -1,0 +1,2 @@
+rootProject.name = "Colossuem_0903"
+include ':app'

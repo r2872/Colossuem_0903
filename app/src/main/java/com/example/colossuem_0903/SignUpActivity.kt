@@ -22,6 +22,15 @@ class SignUpActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        checkEmail_Btn.setOnClickListener {
+
+//            1. 입력한 이메일을 받아서
+            val inputEmail = email_Edt.text.toString()
+
+//            2. 서버에 이메일 중복확인 요청 -> 응답에 따라, 결과 텍스트뷰의 문구 수정.
+            ServerUtil.getRequestDupCheck("EMAIL", inputEmail, null)
+        }
+
         signUp_Btn.setOnClickListener {
 //            1. 입력한 값 받아서
             val inputEmail = email_Edt.text.toString()
@@ -46,7 +55,12 @@ class SignUpActivity : BaseActivity() {
 
                         if (code == 200) {
 
-
+//                            가입에 성공했습니다. 토스트
+//                            이전 화면으로 복귀
+                            runOnUiThread {
+                                Toast.makeText(mContext, "가입에 성공했습니다.", Toast.LENGTH_SHORT).show()
+                                finish()
+                            }
                         } else {
                             val message = jsonObj.getString("message")
 

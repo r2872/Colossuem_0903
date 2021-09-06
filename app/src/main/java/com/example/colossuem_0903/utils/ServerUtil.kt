@@ -76,11 +76,48 @@ class ServerUtil {
 //                    val code = jsonObj.getInt("code")
 //
 //                    Log.d("코드 값", code.toString())
-                    
+
 //                    받아낸 jsonObj 를 통째로 -> 화면의 응답 처리 코드에 넘겨주자.
                     handler?.onResponse(jsonObj)
                 }
             })
         }
+    }
+
+    //    회원가입 실행 함수.
+    fun putRequestSignUp(
+        email: String,
+        password: String,
+        nickname: String,
+        handler: JsonResponseHandler?
+    ) {
+
+        val urlString = "${HOST_URL}/user"
+
+        val formData = FormBody.Builder()
+            .add("email", email)
+            .add("password", password)
+            .add("nick_name", nickname)
+            .build()
+
+        val request = Request.Builder()
+            .url(urlString)
+            .put(formData)
+            .build()
+
+        val client = OkHttpClient()
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+
+                val bodyString = response.body!!.string()
+                val jsonObj = JSONObject(bodyString)
+                Log.d("서버응답본문", jsonObj.toString())
+                handler?.onResponse(jsonObj)
+            }
+        })
     }
 }

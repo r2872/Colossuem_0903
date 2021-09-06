@@ -1,5 +1,6 @@
 package com.example.colossuem_0903
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -17,6 +18,11 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        signUp_Btn.setOnClickListener {
+            val myIntent = Intent(mContext, SignUpActivity::class.java)
+            startActivity(myIntent)
+        }
 
         signIn_Btn.setOnClickListener {
 

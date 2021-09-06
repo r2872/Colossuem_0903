@@ -1,13 +1,16 @@
 package com.example.colossuem_0903
 
 import android.os.Bundle
+import com.example.colossuem_0903.adapters.TopicAdapter
 import com.example.colossuem_0903.datas.TopicData
 import com.example.colossuem_0903.utils.ServerUtil
+import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
 
     val mTopicList = ArrayList<TopicData>()
+    lateinit var mTopicAdapter: TopicAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +23,9 @@ class MainActivity : BaseActivity() {
     override fun setValues() {
 
         getMainDataFromServer()
+
+        mTopicAdapter = TopicAdapter(mContext, R.layout.topic_list_item, mTopicList)
+        topicListView.adapter = mTopicAdapter
     }
 
     override fun setupEvents() {
@@ -50,9 +56,15 @@ class MainActivity : BaseActivity() {
                     tempTopicData.title = topicObj.getString("title")
                     tempTopicData.imgURL = topicObj.getString("img_url")
 
-//                    mTopicList 에 하나씩 추가.
+//                    mTopicList 에 하나씩 추가. => 어댑터의 목록 구성 변수에 변화.
                     mTopicList.add(tempTopicData)
                 }
+
+//                목록의 변화 -> 리스트뷰가 인지. -> 새로고침 공지. -> 리스트뷰 변경 -> 백그라운드에서 UI 변경
+                runOnUiThread {
+                    mTopicAdapter.notifyDataSetChanged()
+                }
+
             }
         })
     }

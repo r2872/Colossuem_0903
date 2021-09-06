@@ -20,7 +20,7 @@ class SignInActivity : BaseActivity() {
     override fun setupEvents() {
 
 //        자동로그인 체크박사의 값이 바뀔때마다 저장.
-        autoLoginCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+        autoLoginCheckBox.setOnCheckedChangeListener { _, isChecked ->
 //            자동로그인 여부인 isChecked 에 들어오는 값을 저장
             ContextUtil.setAutoLogIn(mContext, isChecked)
         }
@@ -64,6 +64,13 @@ class SignInActivity : BaseActivity() {
 //                            Toast.makeText(mContext, "${nickname} 님 환영합니다.", Toast.LENGTH_SHORT)
 //                                .show()
 //                        }
+
+//                        서버가 내려주는 토큰값을 기기에 저장.(Context 활용)
+//                        data {} 내부에 토큰값이 내려옴.
+                        val dataObj = jsonObj.getJSONObject("data")
+                        val token = dataObj.getString("token")
+
+                        ContextUtil.setToken(mContext, token)
 
 //                        메인화면으로 이동 + 로그인화면 종료
                         val myIntent = Intent(mContext, MainActivity::class.java)

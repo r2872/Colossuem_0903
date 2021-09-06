@@ -24,6 +24,7 @@ class ViewTopicDetailActivity : BaseActivity() {
         Glide.with(mContext)
             .load(mTopicData.imgURL)
             .into(topic_Img)
+        title_Txt.text = mTopicData.title
 
     }
 

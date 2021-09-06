@@ -31,6 +31,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/title_Txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="토론 주제 입니다."
@@ -51,6 +52,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/firstSideTitle_Txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="선택진영1"
@@ -58,12 +60,14 @@
                         android:textSize="18sp" />
 
                     <TextView
+                        android:id="@+id/firstSideVoteCount_Txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="득표 수1"
                         android:textColor="@color/white" />
 
                     <Button
+                        android:id="@+id/voteToFirstSide_Btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="투표하기" />
@@ -86,6 +90,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/secondSideTitle_Txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="선택진영2"
@@ -93,12 +98,14 @@
                         android:textSize="18sp" />
 
                     <TextView
+                        android:id="@+id/secondSideVoteCount_Txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="득표 수2"
                         android:textColor="@color/white" />
 
                     <Button
+                        android:id="@+id/voteToSecondSide_Btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="투표하기" />
@@ -122,8 +129,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|bottom
-"
+            android:layout_gravity="right|bottom"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:text="의견 등록하기" />

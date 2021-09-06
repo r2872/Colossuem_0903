@@ -3,6 +3,7 @@ package com.example.colossuem_0903
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import com.example.colossuem_0903.utils.ContextUtil
 import com.example.colossuem_0903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import org.json.JSONObject
@@ -17,6 +18,12 @@ class SignInActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+//        자동로그인 체크박사의 값이 바뀔때마다 저장.
+        autoLoginCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+//            자동로그인 여부인 isChecked 에 들어오는 값을 저장
+            ContextUtil.setAutoLogIn(mContext, isChecked)
+        }
 
         signUp_Btn.setOnClickListener {
             val myIntent = Intent(mContext, SignUpActivity::class.java)
@@ -84,7 +91,8 @@ class SignInActivity : BaseActivity() {
 
     override fun setValues() {
 
-
+//        저장된 자동로그인 여부를 받아내서 -> 자동로그인 체크박스에 반영.
+        autoLoginCheckBox.isChecked = ContextUtil.getAutoLogIn(mContext)
     }
 
 }

@@ -14,6 +14,7 @@
         android:text="이메일" />
 
     <EditText
+        android:id="@+id/email_Edt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="이메일 양식으로 입력 해 주세요"
@@ -25,6 +26,7 @@
         android:text="비밀번호" />
 
     <EditText
+        android:id="@+id/pw_Edt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="별도 제약사항 없음"
@@ -36,6 +38,7 @@
         android:text="닉네임" />
 
     <EditText
+        android:id="@+id/nickName_Edt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="한글도 입력 가능"

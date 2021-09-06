@@ -1,5 +1,6 @@
 package com.example.colossuem_0903.utils
 
+import android.content.Context
 import android.util.Log
 import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
@@ -146,6 +147,41 @@ class ServerUtil {
                 override fun onFailure(call: Call, e: IOException) {
 
                 }
+
+                override fun onResponse(call: Call, response: Response) {
+
+                    val bodyString = response.body!!.string()
+
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+
+                }
+            })
+        }
+
+        //        메인화면 데이터 가져오기
+//        저장된 토큰값을 서버에 전송 -> 메모장(SharedPreferences) 을 열기 위한 재료로 -> Context 가 필요함.
+        fun getRequestMainData(context: Context, handler: JsonResponseHandler?) {
+
+            val url = "${HOST_URL}/v2/main_info".toHttpUrlOrNull()!!.newBuilder()
+
+            val urlString = url.toString()
+            Log.d("완성된 URL", urlString)
+
+            val request = Request.Builder()
+                .url(urlString)
+                .get()
+                .header("X-Http-Token", ContextUtil.getToken(context))
+                .build()
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
                 override fun onResponse(call: Call, response: Response) {
 
                     val bodyString = response.body!!.string()

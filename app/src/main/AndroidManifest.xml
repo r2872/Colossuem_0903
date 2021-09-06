@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Colossuem_0903"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -76,7 +76,7 @@ class ServerUtil {
 //                    val code = jsonObj.getInt("code")
 //
 //                    Log.d("코드 값", code.toString())
-
+                    
 //                    받아낸 jsonObj 를 통째로 -> 화면의 응답 처리 코드에 넘겨주자.
                     handler?.onResponse(jsonObj)
                 }

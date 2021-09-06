@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Colossuem_0903"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ViewTopicDetailActivity"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -23,9 +24,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".SignInActivity">
-
-        </activity>
+        <activity android:name=".SignInActivity"></activity>
     </application>
 
 </manifest>

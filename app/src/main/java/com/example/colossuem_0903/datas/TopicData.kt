@@ -1,6 +1,12 @@
 package com.example.colossuem_0903.datas
 
-class TopicData(var id: Int, var title: String, var imgURL: String) {
+import java.io.Serializable
+
+class TopicData(
+    var id: Int,
+    var title: String,
+    var imgURL: String
+) : Serializable {
 
     //    보조 생성자 추가.
     constructor() : this(0, "제목없음", "")

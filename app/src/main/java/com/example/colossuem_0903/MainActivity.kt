@@ -1,5 +1,6 @@
 package com.example.colossuem_0903
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.colossuem_0903.adapters.TopicAdapter
 import com.example.colossuem_0903.datas.TopicData
@@ -30,6 +31,19 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        clickedTopicItem()
+    }
+
+    private fun clickedTopicItem() {
+
+        topicListView.setOnItemClickListener { _, _, position, _ ->
+
+            val clickedTopicList = mTopicList[position]
+
+            val myIntent = Intent(mContext, ViewTopicDetailActivity::class.java)
+            myIntent.putExtra("topics", clickedTopicList)
+            startActivity(myIntent)
+        }
     }
 
     //    서버에서, 메인화면에 보여줄 정보 받아오기

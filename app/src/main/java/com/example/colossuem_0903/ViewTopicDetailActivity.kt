@@ -49,8 +49,8 @@ class ViewTopicDetailActivity : BaseActivity() {
             .into(topic_Img)
         title_Txt.text = mTopicData.title
 
-//        나머지 데이터는 서버에서 가져오자.
-        getTopicDetailDataFromServer()
+//        나머지 데이터는 서버에서 가져오자. => onResume 에서 가겨오는것으로 일원화.
+//        getTopicDetailDataFromServer()
 
         mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
         replyListView.adapter = mReplyAdapter
@@ -103,7 +103,7 @@ class ViewTopicDetailActivity : BaseActivity() {
     }
 
     //    투표 현황등, 최신 토론 상세 데이터를 다시 서버에서 불러오기.
-    private fun getTopicDetailDataFromServer() {
+    fun getTopicDetailDataFromServer() {
 
         ServerUtil.getRequestTopicDetail(
             mContext,
@@ -138,7 +138,7 @@ class ViewTopicDetailActivity : BaseActivity() {
             })
     }
 
-    private fun refreshTopicDataToUI() {
+    fun refreshTopicDataToUI() {
         runOnUiThread {
             firstSideTitle_Txt.text = mTopicData.sideList[0].title
             firstSideVoteCount_Txt.text = "${mTopicData.sideList[0].voteCount}표"

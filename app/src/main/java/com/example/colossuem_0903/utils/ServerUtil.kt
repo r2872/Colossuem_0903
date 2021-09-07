@@ -308,7 +308,7 @@ class ServerUtil {
         }
 
         //        좋아요 / 싫어요 찍기
-        fun postRequestReplyLike(
+        fun postRequestReplyLikeOrDislike(
             context: Context,
             reply_id: Int,
             is_like: Boolean,

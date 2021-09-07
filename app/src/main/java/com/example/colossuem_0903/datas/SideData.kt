@@ -1,13 +1,14 @@
 package com.example.colossuem_0903.datas
 
 import org.json.JSONObject
+import java.io.Serializable
 
 class SideData(
     var id: Int,
     var topicId: Int,
     var title: String,
     var voteCount: Int
-) {
+) : Serializable {
     constructor() : this(0, 0, "", 0)
 
     companion object {

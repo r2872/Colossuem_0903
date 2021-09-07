@@ -53,8 +53,19 @@ class ViewTopicDetailActivity : BaseActivity() {
                     mTopicData = TopicData.getTopicDataFromJson(topicObj)
 
 //                    새로 받은 데이터로 UI 반영. (득표 수 등등)
-
+                    refreshTopicDataToUI()
                 }
             })
+    }
+
+    private fun refreshTopicDataToUI() {
+        runOnUiThread {
+            firstSideTitle_Txt.text = mTopicData.sideList[0].title
+            firstSideVoteCount_Txt.text = "${mTopicData.sideList[0].voteCount}"
+
+            secondSideTitle_Txt.text = mTopicData.sideList[1].title
+            secondSideVoteCount_Txt.text = "${mTopicData.sideList[1].voteCount}"
+
+        }
     }
 }

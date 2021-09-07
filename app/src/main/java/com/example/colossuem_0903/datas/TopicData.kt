@@ -24,6 +24,21 @@ class TopicData(
             topicData.title = json.getString("title")
             topicData.imgURL = json.getString("img_url")
 
+//            토론의 하위정보로 => sides 라는 JSONArray 를 내려줌.
+//            JSONArray : for 문 돌려서 파싱 -> topicData 의 sideList 에 추가해주기.
+            val sidesArr = json.getJSONArray("sides")
+
+            for (i in 0 until sidesArr.length()) {
+
+                val sideObj = sidesArr.getJSONObject(i)
+
+//                jsonObject -> SideData() 로 변환.
+                val sideData = SideData.getSideDataFromJson(sideObj)
+
+//                topicData 의 sideList 에 추가하기.
+                topicData.sideList.add(sideData)
+            }
+
 //            최종 결과 선정
             return topicData
         }

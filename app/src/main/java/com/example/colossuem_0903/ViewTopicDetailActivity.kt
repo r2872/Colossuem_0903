@@ -48,9 +48,19 @@ class ViewTopicDetailActivity : BaseActivity() {
 
 //        버튼이 눌리면 할 일 (setOnClickListener) 을 적어두는 변수. (Interface 변수)
         val ocl = object : View.OnClickListener {
-            override fun onClick(v: View?) {
+            override fun onClick(view: View?) {
 //                버튼이 눌리면 할 일
+//                view -> 눌린게 어떤 버튼인지? 눌린 버튼을 담아준다.
 
+//                해당 진영에 투표하기 (서버에 투표 실행)
+                ServerUtil.postRequestTopicVote(mContext, 1, object: ServerUtil.JsonResponseHandler {
+                    override fun onResponse(jsonObj: JSONObject) {
+                        
+//                        투표 결과 확인
+                    }
+                })
+
+//                투표를 하고 돌아오면 -> 새로 투표현황 불러오기
             }
         }
 

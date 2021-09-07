@@ -233,12 +233,10 @@ class ServerUtil {
             })
         }
 
+//        진영 선택 투표 하기
         fun postRequestTopicVote(context: Context, side_id: Int, handler: JsonResponseHandler?) {
 
-            val url = "${HOST_URL}/topic_vote".toHttpUrlOrNull()!!.newBuilder()
-
-            val urlString = url.toString()
-            Log.d("완성된 URL", urlString)
+            val urlString = "${HOST_URL}/topic_vote"
 
             val formData = FormBody.Builder()
                 .add("side_id", side_id.toString())

@@ -2,12 +2,14 @@ package com.example.colossuem_0903
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.example.colossuem_0903.adapters.TopicAdapter
 import com.example.colossuem_0903.datas.TopicData
 import com.example.colossuem_0903.datas.UserData
 import com.example.colossuem_0903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.my_custom_action_bar.*
 import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
@@ -29,6 +31,9 @@ class MainActivity : BaseActivity() {
 
         mTopicAdapter = TopicAdapter(mContext, R.layout.topic_list_item, mTopicList)
         topicListView.adapter = mTopicAdapter
+
+//        back_Btn 의 숨김처리. (메인만 따로 숨김)
+        back_Btn.visibility = View.GONE
     }
 
     override fun setupEvents() {

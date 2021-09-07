@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import kotlinx.android.synthetic.main.my_custom_action_bar.*
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -41,5 +42,10 @@ abstract class BaseActivity : AppCompatActivity() {
 //        양 옆의 여백 제거. -> 모든 영역이 커스텀뷰
         val myToolBar = defaultActionBar.customView.parent as Toolbar
         myToolBar.setContentInsetsAbsolute(0, 0)
+
+//        세팅이 끝나면, UI 들의 이벤트도 달아주자.
+        back_Btn.setOnClickListener {
+            finish()
+        }
     }
 }

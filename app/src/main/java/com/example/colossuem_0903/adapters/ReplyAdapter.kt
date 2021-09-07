@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.example.colossuem_0903.R
 import com.example.colossuem_0903.datas.ReplyData
+import java.text.SimpleDateFormat
 
 class ReplyAdapter(
     private val mContext: Context,
@@ -44,6 +45,9 @@ class ReplyAdapter(
         selectedSideTxt.text = "(${data.selectedSide.title})"
 
         writerNickNameTxt.text = data.writer.nickname
+
+        val sdf = SimpleDateFormat("yyyy년 M월 d일")
+        createdAtTxt.text = sdf.format(data.createdAt.time)
 
         return row
     }

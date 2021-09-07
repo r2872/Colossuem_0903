@@ -12,6 +12,9 @@ class TopicData(
     //    선택진영 목록을 담아줄 ArrayList
     val sideList = ArrayList<SideData>()
 
+//    내가 투표한 진영의 id 가 뭔지?
+    var mySideId = 0 // Int 가 들어올 예정
+
     companion object {
         //        json {} 를 넣으면 -> 파싱해서 -> TopicData 객체로 리턴해주는 함수.
         fun getTopicDataFromJson(json: JSONObject): TopicData {
@@ -23,6 +26,8 @@ class TopicData(
             topicData.id = json.getInt("id")
             topicData.title = json.getString("title")
             topicData.imgURL = json.getString("img_url")
+//            내가 선택한 진영의 id?
+            topicData.mySideId = json.getInt("my_side_id")
 
 //            토론의 하위정보로 => sides 라는 JSONArray 를 내려줌.
 //            JSONArray : for 문 돌려서 파싱 -> topicData 의 sideList 에 추가해주기.

@@ -115,10 +115,26 @@ class ViewTopicDetailActivity : BaseActivity() {
     private fun refreshTopicDataToUI() {
         runOnUiThread {
             firstSideTitle_Txt.text = mTopicData.sideList[0].title
-            firstSideVoteCount_Txt.text = "${mTopicData.sideList[0].voteCount}"
+            firstSideVoteCount_Txt.text = "${mTopicData.sideList[0].voteCount}표"
 
             secondSideTitle_Txt.text = mTopicData.sideList[1].title
-            secondSideVoteCount_Txt.text = "${mTopicData.sideList[1].voteCount}"
+            secondSideVoteCount_Txt.text = "${mTopicData.sideList[1].voteCount}표"
+
+//            투표 여부에 따라 버튼들에 다른 문구 적용.
+            if (mTopicData.mySideId == -1) {
+                voteToFirstSide_Btn.text = "투표하기"
+                voteToSecondSide_Btn.text = "투표하기"
+            } else {
+
+//                내 투표 진영 id 가 첫째 진영의 id 와 같은지?
+                if (mTopicData.mySideId == mTopicData.sideList[0].id) {
+                    voteToFirstSide_Btn.text = "취소하기"
+                    voteToSecondSide_Btn.text = "투표하기"
+                } else {
+                    voteToFirstSide_Btn.text = "투표하기"
+                    voteToSecondSide_Btn.text = "취소하기"
+                }
+            }
 
 //            리스트뷰도 새로고침.
             mReplyAdapter.notifyDataSetChanged()

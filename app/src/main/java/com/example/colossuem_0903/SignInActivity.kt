@@ -2,6 +2,7 @@ package com.example.colossuem_0903
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.colossuem_0903.utils.ContextUtil
 import com.example.colossuem_0903.utils.ServerUtil

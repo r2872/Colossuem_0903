@@ -24,7 +24,7 @@ class ServerUtil {
 //        이 안에 만드는 변수 / 함수는 전부 static 처럼 동작함.
 
         //       호스트 주소를 애초에 변수로 저장해두자. (가져다 쓰기 편하게 - ServerUtil 안에서만)
-        private val HOST_URL = "http://54.180.52.26"
+        private const val HOST_URL = "http://54.180.52.26"
 
 //        로그인 기능 실행 함수.
 //        아이디 / 비번 전달 + 서버에 다녀오면 어떤일을 할건지? 인터페이스 객체 같이 전달.
@@ -165,6 +165,43 @@ class ServerUtil {
         fun getRequestMainData(context: Context, handler: JsonResponseHandler?) {
 
             val url = "${HOST_URL}/v2/main_info".toHttpUrlOrNull()!!.newBuilder()
+
+            val urlString = url.toString()
+            Log.d("완성된 URL", urlString)
+
+            val request = Request.Builder()
+                .url(urlString)
+                .get()
+                .header("X-Http-Token", ContextUtil.getToken(context))
+                .build()
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+
+                    val bodyString = response.body!!.string()
+
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+
+                }
+            })
+        }
+
+        //        토론 상세 정보 (특정 주제에 대해서만) 가져오기
+        fun getRequestTopicDetail(context: Context, topicId: Int, handler: JsonResponseHandler?) {
+
+            val url = "${HOST_URL}/topic".toHttpUrlOrNull()!!.newBuilder()
+//            주소 / 3 등 어떤 데이터를 보고싶은지, / 숫자 형태로 이어붙이는 주소 -> Path 라고 부름.
+//            주소?type=EMAIL 등 파라미터이름=값 형태로 이어붙이는 주소 -> Query 라고 부름.
+
+            url.addPathSegment(topicId.toString())
 
             val urlString = url.toString()
             Log.d("완성된 URL", urlString)

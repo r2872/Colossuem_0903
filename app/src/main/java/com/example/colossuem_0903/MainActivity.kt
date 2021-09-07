@@ -2,6 +2,7 @@ package com.example.colossuem_0903
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.example.colossuem_0903.adapters.TopicAdapter
 import com.example.colossuem_0903.datas.TopicData
 import com.example.colossuem_0903.utils.ServerUtil
@@ -74,9 +75,14 @@ class MainActivity : BaseActivity() {
                     mTopicList.add(tempTopicData)
                 }
 
+//                로그인 한 사용자 닉네임 가져오기
+                val user = dataObj.getJSONObject("user")
+                val nickName = user.getString("nick_name")
+
 //                목록의 변화 -> 리스트뷰가 인지. -> 새로고침 공지. -> 리스트뷰 변경 -> 백그라운드에서 UI 변경
                 runOnUiThread {
                     mTopicAdapter.notifyDataSetChanged()
+                    Toast.makeText(mContext, "${nickName}님 환영합니다.", Toast.LENGTH_SHORT).show()
                 }
 
             }

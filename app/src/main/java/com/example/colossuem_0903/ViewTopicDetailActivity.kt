@@ -26,6 +26,15 @@ class ViewTopicDetailActivity : BaseActivity() {
         setValues()
     }
 
+//    화면에 들어올때마다 (onResume), 토론 현황 (+댓글) 새로 불러오기.
+
+    override fun onResume() {
+        super.onResume()
+
+        getTopicDetailDataFromServer()
+    }
+
+
     override fun setValues() {
 
         mTopicData = intent.getSerializableExtra("topics") as TopicData
@@ -101,13 +110,14 @@ class ViewTopicDetailActivity : BaseActivity() {
             object : ServerUtil.JsonResponseHandler {
                 override fun onResponse(jsonObj: JSONObject) {
 
-                    mReplyList.clear()
-
                     val dataObj = jsonObj.getJSONObject("data")
                     val topicObj = dataObj.getJSONObject("topic")
 
 //                    mTopicData 를 새로 파싱한 데이터로 교체.
                     mTopicData = TopicData.getTopicDataFromJson(topicObj)
+
+//                    계속 댓글을 다시 불러옴. -> 기존의 댓글은 지워주고 (중복 막기) 다시 추가.
+                    mReplyList.clear()
 
 //                    topicObj 안에를 보면, 댓글 목록도 같이 들어있다 => 추가 파싱, UI 반영
                     val repliesArr = topicObj.getJSONArray("replies")

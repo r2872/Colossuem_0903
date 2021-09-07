@@ -64,12 +64,12 @@ class ViewTopicDetailActivity : BaseActivity() {
                     object : ServerUtil.JsonResponseHandler {
                         override fun onResponse(jsonObj: JSONObject) {
 
-//                        투표 결과 확인
+//                        투표 결과 확인 => 새로 투표 현황을 다시 받아오자.
+//                            이전에 함수로 분리해둔, 서버에서 상세정보 받아오기 호출.
+                            getTopicDetailDataFromServer()
+
                         }
                     })
-
-//                투표를 하고 돌아오면 -> 새로 투표현황 불러오기
-                getTopicDetailDataFromServer()
             }
         }
 
@@ -126,17 +126,4 @@ class ViewTopicDetailActivity : BaseActivity() {
         }
     }
 
-    private fun voteTopic(side_id: Int) {
-        ServerUtil.postRequestTopicVote(
-            mContext,
-            side_id,
-            object : ServerUtil.JsonResponseHandler {
-                override fun onResponse(jsonObj: JSONObject) {
-
-                    getTopicDetailDataFromServer()
-                }
-            }
-        )
-
-    }
 }

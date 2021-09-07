@@ -34,7 +34,7 @@ class MainActivity : BaseActivity() {
 
 //        back_Btn 의 숨김처리. (메인만 따로 숨김)
         back_Btn.visibility = View.GONE
-ㅂ
+
 //        알림버튼 보여주기 (메인만 따로 보여주기)
         notification_Btn.visibility = View.VISIBLE
     }

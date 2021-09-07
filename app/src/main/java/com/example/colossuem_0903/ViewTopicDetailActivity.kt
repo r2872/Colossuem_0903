@@ -1,5 +1,6 @@
 package com.example.colossuem_0903
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.Glide
@@ -46,6 +47,12 @@ class ViewTopicDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        addReply_Btn.setOnClickListener {
+            val myIntent = Intent(mContext, ReplyEditActivity::class.java)
+            myIntent.putExtra("selectedSide", mTopicData.mySelectedSide)
+            startActivity(myIntent)
+        }
 
 //        첫번째 진영, 두번째 진영 투표버튼의 이벤트.
 //        두개의 버튼이 하는일이 거의 동일함. => 코드를 한번만 짜서, 두개의 버튼에 똑같이 달아보자.

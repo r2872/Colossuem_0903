@@ -12,8 +12,12 @@ class TopicData(
     //    선택진영 목록을 담아줄 ArrayList
     val sideList = ArrayList<SideData>()
 
-//    내가 투표한 진영의 id 가 뭔지?
+    //    내가 투표한 진영의 id 가 뭔지?
     var mySideId = 0 // Int 가 들어올 예정
+
+    //    내가 투표한 진영 자체를 저장.
+//    투표한 진영이 없다면, null 이 될 수도 있다.
+    var mySelectedSide: SideData? = null
 
     companion object {
         //        json {} 를 넣으면 -> 파싱해서 -> TopicData 객체로 리턴해주는 함수.
@@ -28,6 +32,14 @@ class TopicData(
             topicData.imgURL = json.getString("img_url")
 //            내가 선택한 진영의 id?
             topicData.mySideId = json.getInt("my_side_id")
+
+//            그 진영이 어떤건지? => null 로 내려오면 파싱 X
+            if (!json.isNull("my_side")) {
+
+//                null 이 아닐때만 파싱.
+                topicData.mySelectedSide =
+                    SideData.getSideDataFromJson(json.getJSONObject("my_side"))
+            }
 
 //            토론의 하위정보로 => sides 라는 JSONArray 를 내려줌.
 //            JSONArray : for 문 돌려서 파싱 -> topicData 의 sideList 에 추가해주기.

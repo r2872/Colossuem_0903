@@ -1,6 +1,7 @@
 package com.example.colossuem_0903
 
 import android.os.Bundle
+import android.view.View
 import com.bumptech.glide.Glide
 import com.example.colossuem_0903.adapters.ReplyAdapter
 import com.example.colossuem_0903.datas.ReplyData
@@ -42,6 +43,19 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+//        첫번째 진영, 두번째 진영 투표버튼의 이벤트.
+//        두개의 버튼이 하는일이 거의 동일함. => 코드를 한번만 짜서, 두개의 버튼에 똑같이 달아보자.
+
+//        버튼이 눌리면 할 일 (setOnClickListener) 을 적어두는 변수. (Interface 변수)
+        val ocl = object : View.OnClickListener {
+            override fun onClick(v: View?) {
+//                버튼이 눌리면 할 일
+
+            }
+        }
+
+        voteToFirstSide_Btn.setOnClickListener(ocl)
+        voteToSecondSide_Btn.setOnClickListener(ocl)
     }
 
     //    투표 현황등, 최신 토론 상세 데이터를 다시 서버에서 불러오기.
@@ -52,6 +66,8 @@ class ViewTopicDetailActivity : BaseActivity() {
             mTopicData.id,
             object : ServerUtil.JsonResponseHandler {
                 override fun onResponse(jsonObj: JSONObject) {
+
+                    mReplyList.clear()
 
                     val dataObj = jsonObj.getJSONObject("data")
                     val topicObj = dataObj.getJSONObject("topic")
@@ -89,5 +105,19 @@ class ViewTopicDetailActivity : BaseActivity() {
             mReplyAdapter.notifyDataSetChanged()
 
         }
+    }
+
+    private fun voteTopic(side_id: Int) {
+        ServerUtil.postRequestTopicVote(
+            mContext,
+            side_id,
+            object : ServerUtil.JsonResponseHandler {
+                override fun onResponse(jsonObj: JSONObject) {
+
+                    getTopicDetailDataFromServer()
+                }
+            }
+        )
+
     }
 }

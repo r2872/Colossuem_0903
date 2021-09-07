@@ -203,6 +203,8 @@ class ServerUtil {
 
             url.addPathSegment(topicId.toString())
 
+            url.addEncodedQueryParameter("order_type", "NEW")
+
             val urlString = url.toString()
             Log.d("완성된 URL", urlString)
 

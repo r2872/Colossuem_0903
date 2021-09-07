@@ -41,6 +41,8 @@ class ReplyAdapter(
         likeCountTxt.text = "좋아요 ${data.likeCount}개"
         disLikeCountTxt.text = "싫어요 ${data.disLikeCount}개"
 
+        selectedSideTxt.text = "(${data.selectedSide.title})"
+
         return row
     }
 }

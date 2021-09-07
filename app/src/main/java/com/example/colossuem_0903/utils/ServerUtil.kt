@@ -275,7 +275,7 @@ class ServerUtil {
             handler: JsonResponseHandler?
         ) {
 
-            val urlString = "${HOST_URL}/topic_vote"
+            val urlString = "${HOST_URL}/topic_reply"
 
             val formData = FormBody.Builder()
                 .add("topic_id", topic_id.toString())

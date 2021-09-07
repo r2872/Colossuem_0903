@@ -2,6 +2,8 @@ package com.example.colossuem_0903
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -30,7 +32,7 @@ abstract class BaseActivity : AppCompatActivity() {
     abstract fun setupEvents()
 
     //    액션바를 커스텀 액션바로 바꿔주는 함수
-    fun setCustomActionBar() {
+    private fun setCustomActionBar() {
 
 //        기본액션바를 불러오자.
         val defaultActionBar = supportActionBar!!
@@ -47,5 +49,12 @@ abstract class BaseActivity : AppCompatActivity() {
         back_Btn.setOnClickListener {
             finish()
         }
+
+        notification_Btn.setOnClickListener {
+            Toast.makeText(mContext, "알림을 보러 갑니다.", Toast.LENGTH_SHORT).show()
+        }
+
+//        모든 화면은 기본적으로 노티버튼을 숨겨두자.
+        notification_Btn.visibility = View.GONE
     }
 }

@@ -3,10 +3,12 @@ package com.example.colossuem_0903
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.colossuem_0903.utils.ContextUtil
 import com.example.colossuem_0903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_sign_in.*
+import kotlinx.android.synthetic.main.my_custom_action_bar.*
 import org.json.JSONObject
 
 class SignInActivity : BaseActivity() {
@@ -101,6 +103,7 @@ class SignInActivity : BaseActivity() {
 
 //        저장된 자동로그인 여부를 받아내서 -> 자동로그인 체크박스에 반영.
         autoLoginCheckBox.isChecked = ContextUtil.getAutoLogIn(mContext)
+
     }
 
 }

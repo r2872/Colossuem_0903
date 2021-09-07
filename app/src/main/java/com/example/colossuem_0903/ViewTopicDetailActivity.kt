@@ -10,6 +10,7 @@ import com.example.colossuem_0903.datas.ReplyData
 import com.example.colossuem_0903.datas.TopicData
 import com.example.colossuem_0903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_view_topic_detail.*
+import kotlinx.android.synthetic.main.my_custom_action_bar.*
 import org.json.JSONObject
 
 class ViewTopicDetailActivity : BaseActivity() {

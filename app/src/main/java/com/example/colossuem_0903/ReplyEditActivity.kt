@@ -2,11 +2,13 @@ package com.example.colossuem_0903
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.colossuem_0903.datas.SideData
 import com.example.colossuem_0903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_reply_edit.*
+import kotlinx.android.synthetic.main.my_custom_action_bar.*
 import org.json.JSONObject
 
 class ReplyEditActivity : BaseActivity() {
@@ -24,6 +26,7 @@ class ReplyEditActivity : BaseActivity() {
     override fun setValues() {
 
         mSelectedSide = intent.getSerializableExtra("selectedSide") as SideData
+
     }
 
     override fun setupEvents() {

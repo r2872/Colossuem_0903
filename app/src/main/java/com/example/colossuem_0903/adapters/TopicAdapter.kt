@@ -12,12 +12,12 @@ import com.example.colossuem_0903.R
 import com.example.colossuem_0903.datas.TopicData
 
 class TopicAdapter(
-    val mContext: Context,
+    private val mContext: Context,
     resId: Int,
-    val mList: List<TopicData>
+    private val mList: List<TopicData>
 ) : ArrayAdapter<TopicData>(mContext, resId, mList) {
 
-    val mInflater = LayoutInflater.from(mContext)
+    private val mInflater = LayoutInflater.from(mContext)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var row = convertView

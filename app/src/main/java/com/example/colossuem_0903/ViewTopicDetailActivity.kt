@@ -2,6 +2,7 @@ package com.example.colossuem_0903
 
 import android.os.Bundle
 import com.bumptech.glide.Glide
+import com.example.colossuem_0903.adapters.ReplyAdapter
 import com.example.colossuem_0903.datas.ReplyData
 import com.example.colossuem_0903.datas.TopicData
 import com.example.colossuem_0903.utils.ServerUtil
@@ -12,6 +13,7 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     lateinit var mTopicData: TopicData
     val mReplyList = ArrayList<ReplyData>()
+    lateinit var mReplyAdapter: ReplyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,9 @@ class ViewTopicDetailActivity : BaseActivity() {
 
 //        나머지 데이터는 서버에서 가져오자.
         getTopicDetailDataFromServer()
+
+        mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
+        replyListView.adapter = mReplyAdapter
 
     }
 
@@ -79,6 +84,9 @@ class ViewTopicDetailActivity : BaseActivity() {
 
             secondSideTitle_Txt.text = mTopicData.sideList[1].title
             secondSideVoteCount_Txt.text = "${mTopicData.sideList[1].voteCount}"
+
+//            리스트뷰도 새로고침.
+            mReplyAdapter.notifyDataSetChanged()
 
         }
     }

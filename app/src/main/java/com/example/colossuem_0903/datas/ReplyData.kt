@@ -16,6 +16,9 @@ class ReplyData(
 //    이 댓글이 지지하는 진영
     lateinit var selectedSide: SideData
 
+    //    이 댓글을 적은 사람
+    lateinit var writer: UserData
+
     constructor() : this(0, "", 0, 0, false, false, 0)
 
     companion object {
@@ -36,6 +39,10 @@ class ReplyData(
 //            선택진영 파싱 -> SideData 에 만들어둔 파싱 기능 활용.
             val selectedSideObj = json.getJSONObject("selected_side")
             replyData.selectedSide = SideData.getSideDataFromJson(selectedSideObj)
+
+//            작성자 정보 파싱 -> UserData 에 만들어둔 파싱 기능 활용.
+            val userObj = json.getJSONObject("user")
+            replyData.writer = UserData.getUserDataFromJson(userObj)
 
             return replyData
         }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "215958083569",
+    "project_id": "colossuem-0903",
+    "storage_bucket": "colossuem-0903.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215958083569:android:54c54abf8d50c384f25650",
+        "android_client_info": {
+          "package_name": "com.example.colossuem_0903"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "215958083569-6183rcvm4res7plarn340jjhh9lvf2ii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzo-neXhnqbppuc1iC4J1AyVNl6OGoDDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "215958083569-6183rcvm4res7plarn340jjhh9lvf2ii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

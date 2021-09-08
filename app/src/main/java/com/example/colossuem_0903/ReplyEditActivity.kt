@@ -53,9 +53,18 @@ class ReplyEditActivity : BaseActivity() {
                         object : ServerUtil.JsonResponseHandler {
                             override fun onResponse(jsonObj: JSONObject) {
 
-                                runOnUiThread {
-                                    Toast.makeText(mContext, "등록완료.", Toast.LENGTH_SHORT).show()
-                                    finish()
+                                val code = jsonObj.getInt("code")
+                                if (code == 200) {
+                                    runOnUiThread {
+                                        Toast.makeText(mContext, "등록완료.", Toast.LENGTH_SHORT).show()
+                                        finish()
+                                    }
+                                }
+                                else {
+                                    runOnUiThread {
+                                        Toast.makeText(mContext, "이미 의견을 남긴 주제입니다.", Toast.LENGTH_SHORT).show()
+                                        return@runOnUiThread
+                                    }
                                 }
                             }
                         })

@@ -47,7 +47,7 @@ class ReplyEditActivity : BaseActivity() {
                 .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
                     ServerUtil.postRequestTopicReply(
                         mContext,
-                        mSelectedSide.id,
+                        mSelectedSide.topicId,
                         inputContent,
                         object : ServerUtil.JsonResponseHandler {
                             override fun onResponse(jsonObj: JSONObject) {

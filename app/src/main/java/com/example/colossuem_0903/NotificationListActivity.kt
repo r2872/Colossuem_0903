@@ -69,12 +69,8 @@ class NotificationListActivity : BaseActivity() {
         ServerUtil.postRequestNotificationCheck(
             mContext,
             mNotificationList[0].id,
-            object : ServerUtil.JsonResponseHandler {
-                override fun onResponse(jsonObj: JSONObject) {
-
-                    Log.d("알림 확인", "알림 전체 확인완료")
-                }
-            })
+            null
+        )
 
     }
 }

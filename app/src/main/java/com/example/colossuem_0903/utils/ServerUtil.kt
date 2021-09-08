@@ -385,7 +385,7 @@ class ServerUtil {
             })
         }
 
-        //        알림 확인처리하기
+        //        어디까지 읽은 알림인지, 서버에서 확인하기
         fun postRequestNotificationCheck(
             context: Context,
             noti_id: Int,

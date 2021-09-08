@@ -30,8 +30,10 @@ class NotificationAdapter(
         val data = mList[position]
 
         val notificationTitle = row.findViewById<TextView>(R.id.notificationTitle_Txt)
+        val notificationCreateAt = row.findViewById<TextView>(R.id.notiCreateAt_Txt)
 
         notificationTitle.text = data.title
+        notificationCreateAt.text = data.createAt
 
         return row
     }

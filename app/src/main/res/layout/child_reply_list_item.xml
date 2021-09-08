@@ -11,11 +11,13 @@
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/writerNickName_Txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(진영) 닉네임" />
 
         <TextView
+            android:id="@+id/content_Txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

@@ -1,6 +1,8 @@
 package com.example.colossuem_0903
 
+import android.content.Context
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.colossuem_0903.datas.ReplyData
 import com.example.colossuem_0903.utils.ServerUtil
@@ -53,8 +55,22 @@ class ViewReplyDetailActivity : BaseActivity() {
 
                     runOnUiThread {
                         reply_Edt.text.clear()
+
+//                        도전 코드 (구글링) : 키보드 숨김처리
+                        closeKeyboard()
+                        Toast.makeText(mContext, "등록완료.", Toast.LENGTH_SHORT).show()
                     }
                 }
             })
+    }
+
+    fun closeKeyboard() {
+        var view = this.currentFocus
+
+        if (view != null) {
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 }

@@ -7,21 +7,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/notificationTitle_Txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            tools:text="제목 입니다." />
-
-        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            tools:text="제목 입니다." />
 
         <TextView
             android:id="@+id/notiCreateAt_Txt"

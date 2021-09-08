@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Colossuem_0903"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NotificationListActivity"></activity>
+        <activity
+            android:name=".ViewReplyDetailActivity"
+            android:exported="true" />
+        <activity android:name=".NotificationListActivity" />
         <activity android:name=".ReplyEditActivity" />
         <activity android:name=".ViewTopicDetailActivity" />
         <activity

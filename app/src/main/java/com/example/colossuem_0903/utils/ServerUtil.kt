@@ -8,6 +8,7 @@ import org.json.JSONObject
 import java.io.IOException
 
 class ServerUtil {
+//    20210908
 
 //    단순 기능 수행 -> 서버에 요청을 날리고 -> 응답을 화면에 전달.
 

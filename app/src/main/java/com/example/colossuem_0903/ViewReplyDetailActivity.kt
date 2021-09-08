@@ -1,5 +1,6 @@
 package com.example.colossuem_0903
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
@@ -21,7 +22,10 @@ class ViewReplyDetailActivity : BaseActivity() {
         setValues()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun setValues() {
+
+        getMainDataFromServer()
 
         mReplyData = intent.getSerializableExtra("replyData") as ReplyData
 
@@ -65,7 +69,7 @@ class ViewReplyDetailActivity : BaseActivity() {
     }
 
     fun closeKeyboard() {
-        var view = this.currentFocus
+        val view = this.currentFocus
 
         if (view != null) {
             val inputMethodManager =
@@ -73,4 +77,13 @@ class ViewReplyDetailActivity : BaseActivity() {
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
+
+    private fun getMainDataFromServer() {
+        ServerUtil.getRequestChildReply(mContext, mReplyData.id, object: ServerUtil.JsonResponseHandler {
+            override fun onResponse(jsonObj: JSONObject) {
+
+            }
+        })
+    }
+
 }

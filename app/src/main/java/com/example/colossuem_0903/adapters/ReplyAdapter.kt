@@ -84,6 +84,12 @@ class ReplyAdapter(
         likeCountTxt.setOnClickListener(ocl)
         disLikeCountTxt.setOnClickListener(ocl)
 
+//        임시처리 : 답글 갯수도 늘리면 이벤트.
+        replyCountTxt.setOnClickListener {
+
+//            답글 목록 보는 화면으로 이동.
+        }
+
         return row
     }
 }

@@ -384,6 +384,44 @@ class ServerUtil {
                 }
             })
         }
+
+        //        알림 확인처리하기
+        fun postRequestNotificationCheck(
+            context: Context,
+            noti_id: Int,
+            handler: JsonResponseHandler?
+        ) {
+
+            val urlString = "${HOST_URL}/notification"
+
+            val formData = FormBody.Builder()
+                .add("noti_id", noti_id.toString())
+                .build()
+
+            val request = Request.Builder()
+                .url(urlString)
+                .post(formData)
+                .header("X-Http-Token", ContextUtil.getToken(context))
+                .build()
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+
+                    val bodyString = response.body!!.string()
+
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+
+                }
+            })
+        }
     }
 
 

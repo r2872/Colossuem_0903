@@ -71,7 +71,7 @@ class ReplyData(
     companion object {
 
         //        서버가 주는 날짜 양식을 분석하기 위한 SimpleDateFormat
-        val serverFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        private val serverFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
         //        JSON 을 넣으면 -> ReplyData 로 변환해주는 기능
         fun getReplyDataFromJson(json: JSONObject): ReplyData {

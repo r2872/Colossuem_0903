@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Colossuem_0903"
         android:usesCleartextTraffic="true">
+        <activity android:name=".NotificationListActivity"></activity>
         <activity android:name=".ReplyEditActivity" />
         <activity android:name=".ViewTopicDetailActivity" />
         <activity
@@ -31,7 +32,7 @@
             android:name=".fcm.MyFCMService"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
     </application>

@@ -1,6 +1,7 @@
 package com.example.colossuem_0903
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -51,10 +52,9 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         notification_Btn.setOnClickListener {
-            Toast.makeText(mContext, "알림을 보러 갑니다.", Toast.LENGTH_SHORT).show()
+            val myIntent = Intent(mContext, NotificationListActivity::class.java)
+            startActivity(myIntent)
         }
 
-//        모든 화면은 기본적으로 노티버튼을 숨겨두자.
-        notification_Btn.visibility = View.GONE
     }
 }

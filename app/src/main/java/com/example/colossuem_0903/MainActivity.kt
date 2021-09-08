@@ -2,12 +2,14 @@ package com.example.colossuem_0903
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.colossuem_0903.adapters.TopicAdapter
 import com.example.colossuem_0903.datas.TopicData
 import com.example.colossuem_0903.datas.UserData
 import com.example.colossuem_0903.utils.ServerUtil
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.my_custom_action_bar.*
 import org.json.JSONObject
@@ -23,6 +25,7 @@ class MainActivity : BaseActivity() {
 
         setValues()
         setupEvents()
+        Log.d("푸시알림-디바이스토큰", FirebaseInstanceId.getInstance().token.toString())
     }
 
     override fun setValues() {

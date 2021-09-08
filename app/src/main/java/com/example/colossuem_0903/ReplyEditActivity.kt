@@ -2,7 +2,6 @@ package com.example.colossuem_0903
 
 import android.content.DialogInterface
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.colossuem_0903.datas.SideData

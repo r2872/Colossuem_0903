@@ -2,6 +2,7 @@ package com.example.colossuem_0903.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.colossuem_0903.R
+import com.example.colossuem_0903.ViewReplyDetailActivity
 import com.example.colossuem_0903.ViewTopicDetailActivity
 import com.example.colossuem_0903.datas.ReplyData
 import com.example.colossuem_0903.utils.ServerUtil
@@ -119,6 +121,9 @@ class ReplyAdapter(
         replyCountTxt.setOnClickListener {
 
 //            답글 목록 보는 화면으로 이동.
+            val myIntent = Intent(mContext, ViewReplyDetailActivity::class.java)
+            myIntent.putExtra("replyData", data)
+            mContext.startActivity(myIntent)
         }
 
         return row

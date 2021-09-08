@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/activity_view_reply_detail.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/activity_view_topic_detail.xml" value="0.23796296296296296" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/notification_list_item.xml" value="0.23796296296296296" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/reply_list_item.xml" value="0.23796296296296296" />
       </map>
     </option>
   </component>

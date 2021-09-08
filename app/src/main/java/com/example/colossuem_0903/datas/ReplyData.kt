@@ -2,6 +2,7 @@ package com.example.colossuem_0903.datas
 
 import android.util.Log
 import org.json.JSONObject
+import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -13,7 +14,7 @@ class ReplyData(
     var myLike: Boolean,
     var myDisLike: Boolean,
     var replyCount: Int
-) {
+) : Serializable {
 
     //    ReplyData 의 하위 개념들
 //    이 댓글이 지지하는 진영

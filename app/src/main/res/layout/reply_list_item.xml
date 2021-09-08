@@ -70,9 +70,11 @@
             android:orientation="horizontal">
 
             <TextView
+                android:padding="10dp"
                 android:id="@+id/replyCount_Txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/black_border_rect"
                 android:text="답글 ?개" />
 
             <TextView

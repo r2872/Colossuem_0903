@@ -501,6 +501,41 @@ class ServerUtil {
             })
         }
 
+        //        사용자 정보 조회하기
+        fun getRequestUserInfo(
+            context: Context,
+            handler: JsonResponseHandler?
+        ) {
+            val url = "${HOST_URL}/user_info".toHttpUrlOrNull()!!.newBuilder()
+
+            val urlString = url.toString()
+            Log.d("완성된 URL", urlString)
+
+            val request = Request.Builder()
+                .url(urlString)
+                .get()
+                .header("X-Http-Token", ContextUtil.getToken(context))
+                .build()
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+
+                    val bodyString = response.body!!.string()
+
+                    val jsonObj = JSONObject(bodyString)
+                    Log.d("서버응답", jsonObj.toString())
+                    handler?.onResponse(jsonObj)
+
+                }
+            })
+        }
+
     }
 
 

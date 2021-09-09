@@ -65,6 +65,12 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        refreshLayout.setOnRefreshListener {
+            getTopicDetailDataFromServer()
+
+            refreshLayout.isRefreshing = false
+        }
+
         addReply_Btn.setOnClickListener {
 
 //            투표를 해야만 댓글작성 화면으로 이동시키자

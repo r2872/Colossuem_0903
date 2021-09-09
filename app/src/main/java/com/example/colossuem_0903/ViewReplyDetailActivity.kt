@@ -46,6 +46,13 @@ class ViewReplyDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        refreshLayout.setOnRefreshListener {
+
+            getMainDataFromServer()
+
+            refreshLayout.isRefreshing = false
+        }
+
 //        답글 삭제 이벤트 -> 리스트뷰의 이벤트 처리 (LongClick)
         childReplyListView.setOnItemLongClickListener { parent, view, position, id ->
 

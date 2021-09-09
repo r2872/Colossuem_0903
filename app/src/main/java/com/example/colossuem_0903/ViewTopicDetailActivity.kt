@@ -158,7 +158,7 @@ class ViewTopicDetailActivity : BaseActivity() {
                         })
                 })
                 .setNegativeButton("취소", null)
-                .show()
+            alert.show()
 
             return@setOnItemLongClickListener true
         }

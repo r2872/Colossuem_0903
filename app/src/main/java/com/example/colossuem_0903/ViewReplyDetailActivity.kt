@@ -2,10 +2,12 @@ package com.example.colossuem_0903
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.colossuem_0903.adapters.ChildReplyAdapter
 import com.example.colossuem_0903.datas.ReplyData
 import com.example.colossuem_0903.utils.ServerUtil
@@ -42,6 +44,25 @@ class ViewReplyDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+//        답글 삭제 이벤트 -> 리스트뷰의 이벤트 처리 (LongClick)
+        childReplyListView.setOnItemLongClickListener { parent, view, position, id ->
+
+//            경고창 -> 정말 해당 답글을 삭제하시겠습니까?
+            val alert = AlertDialog.Builder(mContext)
+                .setMessage("정말 해당 답글을 삭제하시겠습니까?")
+                .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
+
+//                    해당 답글 삭제 -> API 요청 + 새로고침
+
+                })
+                .setNegativeButton("취소", null)
+                .show()
+
+
+//            true -> 롱클릭 전용 이벤트, false -> 떼면 일반 클릭 이벤트도 실행
+            return@setOnItemLongClickListener true
+        }
 
         replyPost_Btn.setOnClickListener {
             replyToReply()

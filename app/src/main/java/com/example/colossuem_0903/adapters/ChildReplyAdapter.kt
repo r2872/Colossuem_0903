@@ -45,18 +45,18 @@ class ChildReplyAdapter(
         dislikeCountTxt.text = "싫어요 ${data.disLikeCount}개"
 
         if (data.myLike) {
-            likeCountTxt.setBackgroundResource(R.drawable.red_border_rect)
+            likeCountTxt.setBackgroundResource(R.drawable.red_border_box)
             likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.like_red))
         } else {
             likeCountTxt.setBackgroundResource(R.drawable.black_border_rect)
-            likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.gray))
+            likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.black))
         }
         if (data.myDisLike) {
-            dislikeCountTxt.setBackgroundResource(R.drawable.blue_border_rect)
+            dislikeCountTxt.setBackgroundResource(R.drawable.blue_border_box)
             dislikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.dislike_blue))
         } else {
             dislikeCountTxt.setBackgroundResource(R.drawable.black_border_rect)
-            dislikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.gray))
+            dislikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.black))
         }
 
         likeCountTxt.tag = true

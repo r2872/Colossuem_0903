@@ -70,14 +70,14 @@ class ReplyAdapter(
             likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.like_red))
         } else {
             likeCountTxt.setBackgroundResource(R.drawable.black_border_rect)
-            likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.gray))
+            likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.black))
         }
         if (data.myDisLike) {
             disLikeCountTxt.setBackgroundResource(R.drawable.blue_border_rect)
             disLikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.dislike_blue))
         } else {
             disLikeCountTxt.setBackgroundResource(R.drawable.black_border_rect)
-            disLikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.gray))
+            disLikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.black))
         }
 
 

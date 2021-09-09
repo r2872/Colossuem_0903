@@ -70,6 +70,9 @@ class ViewReplyDetailActivity : BaseActivity() {
 //                        도전 코드 (구글링) : 키보드 숨김처리
                         closeKeyboard()
                         Toast.makeText(mContext, "등록완료.", Toast.LENGTH_SHORT).show()
+
+//                        리스트뷰의 최 하단 (마지막 아이템) 으로 이동.
+                        childReplyListView.smoothScrollToPosition(mReplyList.lastIndex)
                     }
                     getMainDataFromServer()
                 }
@@ -109,6 +112,7 @@ class ViewReplyDetailActivity : BaseActivity() {
                     }
                     runOnUiThread {
                         mChildReplyAdapter.notifyDataSetChanged()
+
                     }
                 }
             })

@@ -44,12 +44,42 @@ class ChildReplyAdapter(
         likeCountTxt.text = "좋아요 ${data.likeCount}개"
         dislikeCountTxt.text = "싫어요 ${data.disLikeCount}개"
 
-        likeCountTxt.setOnClickListener {
-
+        if (data.myLike) {
+            likeCountTxt.setBackgroundResource(R.drawable.red_border_rect)
+            likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.like_red))
+        } else {
+            likeCountTxt.setBackgroundResource(R.drawable.black_border_rect)
+            likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.gray))
         }
-        dislikeCountTxt.setOnClickListener {
-
+        if (data.myDisLike) {
+            dislikeCountTxt.setBackgroundResource(R.drawable.blue_border_rect)
+            dislikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.dislike_blue))
+        } else {
+            dislikeCountTxt.setBackgroundResource(R.drawable.black_border_rect)
+            dislikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.gray))
         }
+
+        likeCountTxt.tag = true
+        dislikeCountTxt.tag = false
+
+        val ocl = View.OnClickListener { view ->
+            val isLike = view!!.tag.toString().toBoolean()
+
+            ServerUtil.postRequestReplyLikeOrDislike(
+                mContext,
+                data.id,
+                isLike,
+                object : ServerUtil.JsonResponseHandler {
+                    override fun onResponse(jsonObj: JSONObject) {
+
+                        (mContext as ViewReplyDetailActivity).getMainDataFromServer()
+                    }
+                })
+        }
+
+        likeCountTxt.setOnClickListener(ocl)
+        dislikeCountTxt.setOnClickListener(ocl)
+
 
         return row
     }

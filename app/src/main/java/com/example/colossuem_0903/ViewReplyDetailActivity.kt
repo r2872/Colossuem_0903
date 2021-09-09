@@ -89,7 +89,7 @@ class ViewReplyDetailActivity : BaseActivity() {
         }
     }
 
-    private fun getMainDataFromServer() {
+    fun getMainDataFromServer() {
         ServerUtil.getRequestChildReply(
             mContext,
             mReplyData.id,

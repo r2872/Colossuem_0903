@@ -125,7 +125,8 @@
         <ListView
             android:id="@+id/replyListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@drawable/black_rect" />
 
         <Button
             android:id="@+id/addReply_Btn"

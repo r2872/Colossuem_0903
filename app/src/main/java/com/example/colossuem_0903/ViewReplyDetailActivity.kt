@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.colossuem_0903.adapters.ChildReplyAdapter
 import com.example.colossuem_0903.datas.ReplyData
+import com.example.colossuem_0903.utils.GlobalData
 import com.example.colossuem_0903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_view_reply_detail.*
 import org.json.JSONObject
@@ -52,9 +53,14 @@ class ViewReplyDetailActivity : BaseActivity() {
 //            길게 누른 답글의 작성자가 본인 인가?
 //            답글.작성자.id(Int) == 로그인한사람.id(Int)
 
-//            if () {
-//                return@setOnItemLongClickListener true
-//            }
+            Log.d("댓글상세-로그인한사람?", GlobalData.loginUser!!.nickname)
+
+            val clickedReply = mReplyList[position]
+
+            if (GlobalData.loginUser?.id != clickedReply.writer.id) {
+                Toast.makeText(mContext, "자신이 적은 댓글만 삭제 가능합니다.", Toast.LENGTH_SHORT).show()
+                return@setOnItemLongClickListener true
+            }
 
 //            경고창 -> 정말 해당 답글을 삭제하시겠습니까?
             val alert = AlertDialog.Builder(mContext)

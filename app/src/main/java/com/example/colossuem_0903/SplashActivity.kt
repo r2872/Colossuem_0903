@@ -7,6 +7,7 @@ import android.os.Looper
 import android.util.Log
 import com.example.colossuem_0903.datas.UserData
 import com.example.colossuem_0903.utils.ContextUtil
+import com.example.colossuem_0903.utils.GlobalData
 import com.example.colossuem_0903.utils.ServerUtil
 import org.json.JSONObject
 
@@ -44,7 +45,10 @@ class SplashActivity : BaseActivity() {
                         val userObj = dataObj.getJSONObject("user")
                         val loginUserData = UserData.getUserDataFromJson(userObj)
 
-                        Log.d("사용자 정보", loginUserData.nickname)
+//                        서버가 알려준 로그인 한 사람 데이터를 => 모든 화면과 공유. (GlobalData 클래스 활용)
+                        GlobalData.loginUser = loginUserData
+
+                        Log.d("사용자 정보", "${GlobalData.loginUser?.nickname}")
                     }
                 })
 

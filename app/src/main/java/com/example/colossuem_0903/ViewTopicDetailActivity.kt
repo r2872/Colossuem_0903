@@ -1,13 +1,19 @@
 package com.example.colossuem_0903
 
+import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.AbsListView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.example.colossuem_0903.adapters.ReplyAdapter
 import com.example.colossuem_0903.datas.ReplyData
 import com.example.colossuem_0903.datas.TopicData
+import com.example.colossuem_0903.utils.GlobalData
 import com.example.colossuem_0903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_view_topic_detail.*
 import kotlinx.android.synthetic.main.my_custom_action_bar.*
@@ -100,6 +106,62 @@ class ViewTopicDetailActivity : BaseActivity() {
 
         voteToFirstSide_Btn.setOnClickListener(ocl)
         voteToSecondSide_Btn.setOnClickListener(ocl)
+
+
+//         리스트뷰 스크롤 시 이벤트 작성중
+        replyListView.setOnScrollListener(object : AbsListView.OnScrollListener {
+            override fun onScrollStateChanged(view: AbsListView?, scrollState: Int) {
+
+
+            }
+
+            override fun onScroll(
+                view: AbsListView?,
+                firstVisibleItem: Int,
+                visibleItemCount: Int,
+                totalItemCount: Int
+            ) {
+
+            }
+        })
+
+        replyListView.setOnItemLongClickListener { parent, view, position, id ->
+
+//            1. 길게 눌린 댓글이 어떤건지 추출.
+            val clickedReply = mReplyList[position]
+
+//            2. 그 댓글의 작성자가 내가 맞는지 확인.
+//            => 다른 사람이라면, 토스트 띄워주기
+            if (GlobalData.loginUser?.id != clickedReply.writer.id) {
+                Toast.makeText(mContext, "자신이 작성한 의견만 삭제 가능합니다.", Toast.LENGTH_SHORT).show()
+                return@setOnItemLongClickListener true
+            }
+
+//            3. 내가 작성자가 맞다면, 경고창 띄우기.
+            val alert = AlertDialog.Builder(mContext)
+                .setMessage("정말 삭제하시겠습니까?")
+                .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
+
+//            4. 확인 누르면 -> 댓글 삭제 API 호출.
+                    ServerUtil.deleteRequestReply(
+                        mContext,
+                        clickedReply.id,
+                        object : ServerUtil.JsonResponseHandler {
+                            override fun onResponse(jsonObj: JSONObject) {
+
+                                runOnUiThread {
+                                    Toast.makeText(mContext, "삭제했습니다.", Toast.LENGTH_SHORT).show()
+                                }
+//             => 응답 돌아오면 바로 새로고침.
+                                getTopicDetailDataFromServer()
+                            }
+                        })
+                })
+                .setNegativeButton("취소", null)
+                .show()
+
+            return@setOnItemLongClickListener true
+        }
     }
 
     //    투표 현황등, 최신 토론 상세 데이터를 다시 서버에서 불러오기.

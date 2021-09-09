@@ -12,13 +12,16 @@
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/drawable/red_border_box.xml" value="0.26564102564102565" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/drawable/red_border_rect.xml" value="0.26564102564102565" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/drawable/red_circle.xml" value="0.26564102564102565" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/drawable/write_circle.xml" value="0.26564102564102565" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/activity_my_profile.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/activity_reply_edit.xml" value="0.23796296296296296" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/activity_view_reply_detail.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/activity_view_topic_detail.xml" value="0.23796296296296296" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/child_reply_list_item.xml" value="0.23796296296296296" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/my_custom_action_bar.xml" value="0.6" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/notification_list_item.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/reply_list_item.xml" value="0.23796296296296296" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/Colossuem_0903/app/src/main/res/layout/topic_list_item.xml" value="0.10833333333333334" />
       </map>
     </option>
   </component>

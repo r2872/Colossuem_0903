@@ -12,6 +12,7 @@
         android:padding="10dp">
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/notificationTitle_Txt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -20,6 +21,7 @@
             tools:text="제목 입니다." />
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/notiCreateAt_Txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

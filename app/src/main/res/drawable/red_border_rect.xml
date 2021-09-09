@@ -7,7 +7,7 @@
             <item>
 
                 <shape android:shape="rectangle">
-                    <solid android:color="@color/dislike_red" />
+                    <solid android:color="@color/like_red" />
 
                 </shape>
 
@@ -30,7 +30,7 @@
             <item>
 
                 <shape android:shape="rectangle">
-                    <solid android:color="@color/dislike_red" />
+                    <solid android:color="@color/like_red" />
                 </shape>
             </item>
 

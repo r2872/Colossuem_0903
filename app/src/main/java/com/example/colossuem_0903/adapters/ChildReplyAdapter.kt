@@ -36,9 +36,20 @@ class ChildReplyAdapter(
 
         val writerNickNameTxt = row.findViewById<TextView>(R.id.writerNickName_Txt)
         val contentTxt = row.findViewById<TextView>(R.id.content_Txt)
+        val likeCountTxt = row.findViewById<TextView>(R.id.likeCount_Txt)
+        val dislikeCountTxt = row.findViewById<TextView>(R.id.disLikeCount_Txt)
 
         writerNickNameTxt.text = "(${data.selectedSide.title}) ${data.writer.nickname}"
         contentTxt.text = data.content
+        likeCountTxt.text = "좋아요 ${data.likeCount}개"
+        dislikeCountTxt.text = "싫어요 ${data.disLikeCount}개"
+
+        likeCountTxt.setOnClickListener {
+
+        }
+        dislikeCountTxt.setOnClickListener {
+
+        }
 
         return row
     }

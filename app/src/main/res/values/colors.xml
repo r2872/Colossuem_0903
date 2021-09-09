@@ -7,7 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="like_blue">#4196F6</color>
-    <color name="dislike_red">#DC6757</color>
+    <color name="dislike_blue">#4196F6</color>
+    <color name="like_red">#DC6757</color>
     <color name="gray">#dfdfdf</color>
+    <color name="red_box">#FF0000</color>
+    <color name="blue_box">#0000FF</color>
 </resources>

@@ -66,15 +66,15 @@ class ReplyAdapter(
 //        위와 같은 상황에서 글씨 색상도, 빨간 or #DFDFDF 회색.
 //        싫어요 글씨 파란색 or #DFDFDF 회색.
         if (data.myLike) {
-            likeCountTxt.setBackgroundResource(R.drawable.blue_border_rect)
-            likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.like_blue))
+            likeCountTxt.setBackgroundResource(R.drawable.red_border_rect)
+            likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.like_red))
         } else {
             likeCountTxt.setBackgroundResource(R.drawable.black_border_rect)
             likeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.gray))
         }
         if (data.myDisLike) {
-            disLikeCountTxt.setBackgroundResource(R.drawable.red_border_rect)
-            disLikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.dislike_red))
+            disLikeCountTxt.setBackgroundResource(R.drawable.blue_border_rect)
+            disLikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.dislike_blue))
         } else {
             disLikeCountTxt.setBackgroundResource(R.drawable.black_border_rect)
             disLikeCountTxt.setTextColor(ContextCompat.getColor(mContext, R.color.gray))

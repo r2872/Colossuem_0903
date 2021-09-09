@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.example.colossuem_0903.datas.UserData
 import com.example.colossuem_0903.utils.ContextUtil
+import com.example.colossuem_0903.utils.GlobalData
 import com.example.colossuem_0903.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.my_custom_action_bar.*
@@ -72,6 +74,11 @@ class SignInActivity : BaseActivity() {
 //                        data {} 내부에 토큰값이 내려옴.
                         val dataObj = jsonObj.getJSONObject("data")
                         val token = dataObj.getString("token")
+                        val userObj = dataObj.getJSONObject("user")
+
+                        val loginUserData = UserData.getUserDataFromJson(userObj)
+
+                        GlobalData.loginUser = loginUserData
 
                         ContextUtil.setToken(mContext, token)
 

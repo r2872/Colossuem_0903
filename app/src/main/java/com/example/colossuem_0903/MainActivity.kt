@@ -40,6 +40,9 @@ class MainActivity : BaseActivity() {
 
 //        알림버튼 보여주기 (메인만 따로 보여주기)
         notify_Lay.visibility = View.VISIBLE
+
+//        내 프로필 화면 버튼 보여주기
+        profile_Img.visibility = View.VISIBLE
     }
 
     override fun onResume() {
@@ -83,6 +86,12 @@ class MainActivity : BaseActivity() {
 
             val myIntent = Intent(mContext, ViewTopicDetailActivity::class.java)
             myIntent.putExtra("topics", clickedTopicList)
+            startActivity(myIntent)
+        }
+
+        profile_Img.setOnClickListener {
+
+            val myIntent = Intent(mContext, MyProfileActivity::class.java)
             startActivity(myIntent)
         }
     }

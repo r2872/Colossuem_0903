@@ -25,6 +25,7 @@ class ReplyEditActivity : BaseActivity() {
     override fun setValues() {
 
         mSelectedSide = intent.getSerializableExtra("selectedSide") as SideData
+        selectedSide_Txt.text = mSelectedSide.title
 
     }
 

@@ -126,7 +126,9 @@
             android:id="@+id/replyListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/black_rect" />
+            android:background="@drawable/black_rect"
+            android:padding="10dp"
+            android:paddingTop="10dp" />
 
         <ImageView
             android:id="@+id/addReply_Btn"
